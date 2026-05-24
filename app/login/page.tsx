@@ -3,7 +3,7 @@ export default function LoginPage() {
     <div>
       <h1>Login</h1>
 
-      <button
+      <button<button
         onClick={() => {
           alert("Checking credentials...")
         }}
