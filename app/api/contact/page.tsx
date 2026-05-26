@@ -7,23 +7,29 @@ export default function ContactPage() {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
-  async function handleSubmit() {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-      }),
-    })
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+        }),
+      })
 
-    if (res.ok) {
-      alert("Message envoyé")
-    } else {
-      alert("Erreur")
+      const data = await response.json()
+
+      if (response.ok) {
+        alert("Message envoyé")
+      } else {
+        alert(data.error || "Erreur")
+      }
+    } catch (error) {
+      alert("Erreur serveur")
     }
   }
 
@@ -32,20 +38,24 @@ export default function ContactPage() {
       <h1>Contact</h1>
 
       <input
+        type="text"
         placeholder="Nom"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
 
-      <br /><br />
+      <br />
+      <br />
 
       <input
+        type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
 
-      <br /><br />
+      <br />
+      <br />
 
       <textarea
         placeholder="Message"
@@ -53,7 +63,8 @@ export default function ContactPage() {
         onChange={(e) => setMessage(e.target.value)}
       />
 
-      <br /><br />
+      <br />
+      <br />
 
       <button onClick={handleSubmit}>
         Envoyer
