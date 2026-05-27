@@ -7,7 +7,9 @@ export default function ContactPage() {
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
 
-  const handleSubmit = async () => {
+  async function handleSubmit() {
+    alert("BUTTON WORKS")
+
     const response = await fetch("/api/contact", {
       method: "POST",
       headers: {
@@ -19,6 +21,10 @@ export default function ContactPage() {
         message,
       }),
     })
+
+    const data = await response.json()
+
+    console.log(data)
 
     if (response.ok) {
       alert("Message envoyé")
@@ -32,6 +38,7 @@ export default function ContactPage() {
       <h1>Contact</h1>
 
       <input
+        type="text"
         placeholder="Nom"
         value={name}
         onChange={(e) => setName(e.target.value)}
@@ -40,6 +47,7 @@ export default function ContactPage() {
       <br /><br />
 
       <input
+        type="email"
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
