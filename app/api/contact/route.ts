@@ -1,38 +1,26 @@
-import { Resend } from "resend"
+async function handleSubmit() {
+  alert("BUTTON WORKS")
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
-export async function POST(req: Request) {
   try {
-    const body = await req.json()
-
-    const { name, email, message } = body
-
-    console.log("SENDING EMAIL")
-
-    const data = await resend.emails.send({
-      from: "PGOLD <onboarding@resend.dev>",
-      to: "proformation1710@gmail.com",
-      subject: "New message PGOLD",
-      html: `
-        <h1>New Contact</h1>
-        <p>Name: ${name}</p>
-        <p>Email: ${email}</p>
-        <p>Message: ${message}</p>
-      `,
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
     })
 
-    console.log(data)
+    const text = await response.text()
 
-    return Response.json({
-      success: true,
-    })
+    alert(`Status: ${response.status}`)
+    alert(text)
+
   } catch (error) {
-    console.log(error)
-
-    return Response.json(
-      { error: "Email failed" },
-      { status: 500 }
-    )
+    alert("FETCH ERROR")
+    console.error(error)
   }
 }
