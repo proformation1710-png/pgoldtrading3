@@ -454,28 +454,44 @@ async function handleSubmit(e: React.FormEvent) {
             {t.contactTitle}
           </h2>
 
-          <form className="bg-zinc-950/40 backdrop-blur-xl border border-yellow-500/10 rounded-3xl p-8 max-w-2xl mx-auto">
+         <form
+  onSubmit={handleSubmit}
+  className="bg-zinc-950/40 backdrop-blur-xl border border-yellow-500/10 rounded-3xl p-8 max-w-2xl mx-auto"
+>
 
-            <input
-              className="w-full mb-4 p-4 bg-black border border-zinc-800 rounded-xl"
-              placeholder={t.fullname}
-            />
+  <input
+    className="w-full mb-4 p-4 bg-black border border-zinc-800 rounded-xl"
+    placeholder={t.fullname}
+    value={name}
+    onChange={(e) => setName(e.target.value)}
+    required
+  />
 
-            <input
-              className="w-full mb-4 p-4 bg-black border border-zinc-800 rounded-xl"
-              placeholder="Email"
-            />
+  <input
+    type="email"
+    className="w-full mb-4 p-4 bg-black border border-zinc-800 rounded-xl"
+    placeholder="Email"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    required
+  />
 
-            <textarea
-              className="w-full mb-6 p-4 bg-black border border-zinc-800 rounded-xl h-32"
-              placeholder={t.message}
-            />
+  <textarea
+    className="w-full mb-6 p-4 bg-black border border-zinc-800 rounded-xl h-32"
+    placeholder={t.message}
+    value={message}
+    onChange={(e) => setMessage(e.target.value)}
+    required
+  />
 
-            <button className="w-full bg-gradient-to-r from-yellow-500 to-yellow-300 text-black font-bold py-4 rounded-xl">
-              {t.send}
-            </button>
+  <button
+    type="submit"
+    className="w-full bg-gradient-to-r from-yellow-500 to-yellow-300 text-black font-bold py-4 rounded-xl"
+  >
+    {t.send}
+  </button>
 
-          </form>
+</form>
 
         </section>
 
