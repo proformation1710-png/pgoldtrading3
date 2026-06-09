@@ -5,6 +5,39 @@ import { useState } from "react"
 export default function Home() {
 
   const [language, setLanguage] = useState("fr")
+  const [name, setName] = useState("")
+const [email, setEmail] = useState("")
+const [message, setMessage] = useState("")
+
+async function handleSubmit(e: React.FormEvent) {
+  e.preventDefault()
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+      }),
+    })
+
+    if (response.ok) {
+      alert("Message envoyé")
+      setName("")
+      setEmail("")
+      setMessage("")
+    } else {
+      alert("Erreur lors de l'envoi")
+    }
+  } catch (error) {
+    console.error(error)
+    alert("Erreur lors de l'envoi")
+  }
+}
 
   const months = [
     "Jan","Fév","Mar","Avr","Mai","Juin",
