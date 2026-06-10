@@ -39,13 +39,15 @@ async function handleSubmit(e: React.FormEvent) {
   }
 }
 
-  const months = [
-    "Jan","Fév","Mar","Avr","Mai","Juin",
-    "Juil","Août","Sep","Oct","Nov","Déc"
-  ]
+ const months = [
+  "Jan 2026",
+  "Fév 2026",
+  "Mar 2026",
+  "Avr 2026",
+  "Mai 2026",
+]
 
-  const values = [3.2, 3.8, 4.1, 4.9, 5.1, 5.8, 6.2, 5.4, 6.8, 5.9, 6.5, 7.0]
-
+const values = [3.2, 3.8, 4.1, 4.9, 5.1]
   // PORTFOLIO SIMULATION
   const initialCapital = 3000
 
