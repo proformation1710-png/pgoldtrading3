@@ -364,7 +364,7 @@ const values = [3.2, 3.8, 4.1, 4.9, 5.1]
 
             <div className="flex items-end justify-between h-72 gap-2">
 
-              {[20,28,24,36,30,50,60,40,55,48,65,72].map((h, i) => (
+              {[20,28,24,36,30].map((h, i) => (
                 <div key={i} className="flex flex-col items-center w-full">
 
                   <span className="text-yellow-400 text-xs mb-2">
