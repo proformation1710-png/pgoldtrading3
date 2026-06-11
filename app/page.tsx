@@ -506,7 +506,7 @@ const values = [3.2, 3.8, 4.1, 4.9, 5.1]
 
       ```tsx
 {/* AVERTISSEMENT */}
-<section className="px-6 py-12 max-w-5xl mx-auto text-sm text-zinc-400 border-t border-zinc-800">
+<section className="px-6 py-12 max-w-5xl mx-auto text-sm text-white border-t border-zinc-800">
   <h3 className="text-xl font-bold text-yellow-400 mb-4">
     Avertissement sur les risques
   </h3>
@@ -520,9 +520,9 @@ const values = [3.2, 3.8, 4.1, 4.9, 5.1]
     performances futures.
   </p>
 
-  <h3 className="text-xl font-bold text-yellow-400 mb-4">
-    Clause de non-responsabilité
-  </h3>
+<h3 className="text-2xl font-bold text-yellow-300 mb-4">
+  Clause de non-responsabilité
+</h3>
 
   <p>
     PGOLD ne garantit aucun résultat ni aucune rentabilité. Chaque utilisateur
