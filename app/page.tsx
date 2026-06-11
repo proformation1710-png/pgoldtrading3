@@ -504,6 +504,37 @@ const values = [3.2, 3.8, 4.1, 4.9, 5.1]
 
       </div>
 
+      ```tsx
+{/* AVERTISSEMENT */}
+<section className="px-6 py-12 max-w-5xl mx-auto text-sm text-zinc-400 border-t border-zinc-800">
+  <h3 className="text-xl font-bold text-yellow-400 mb-4">
+    Avertissement sur les risques
+  </h3>
+
+  <p className="mb-6">
+    Les informations et analyses diffusées par PGOLD sont fournies à titre
+    informatif et éducatif uniquement. Elles ne constituent en aucun cas un
+    conseil en investissement personnalisé. Le trading et l'investissement
+    comportent des risques importants, notamment le risque de perte partielle
+    ou totale du capital investi. Les performances passées ne préjugent pas des
+    performances futures.
+  </p>
+
+  <h3 className="text-xl font-bold text-yellow-400 mb-4">
+    Clause de non-responsabilité
+  </h3>
+
+  <p>
+    PGOLD ne garantit aucun résultat ni aucune rentabilité. Chaque utilisateur
+    reste seul responsable de ses décisions d'investissement et de la gestion
+    de son capital. En utilisant les informations et services proposés, vous
+    reconnaissez comprendre les risques liés aux marchés financiers et agir en
+    toute connaissance de cause.
+  </p>
+</section>
+```
+
+ 
     </main>
   )
 }
